@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "SkillPass — Hồ sơ năng lực số Avalanche",
+  "short_name": "SkillPass",
+  "description": "Ví hồ sơ năng lực số & chứng chỉ Soulbound Token (SBT) trên mạng lưới Avalanche Fuji.",
+  "lang": "vi",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#2F66F0",
+  "background_color": "#EEF4FF",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

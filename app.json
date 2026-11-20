@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "SkillPass",
+    "slug": "skillpass",
+    "scheme": "skillpass",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "vn.skillpass.app"
+    },
+    "android": {
+      "package": "vn.skillpass.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/favicon.png",
+      "name": "SkillPass — Hồ sơ năng lực số Avalanche",
+      "shortName": "SkillPass",
+      "lang": "vi",
+      "themeColor": "#2F66F0",
+      "backgroundColor": "#EEF4FF",
+      "display": "standalone",
+      "orientation": "portrait"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "SkillPass cần quyền truy cập ảnh để bạn tải minh chứng và ảnh đại diện."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "d56c8dfb-3a56-4e5a-8d4d-af2311279db7"
+      }
+    }
+  }
+}

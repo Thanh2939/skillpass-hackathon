@@ -1,0 +1,21 @@
+# Supabase Project Configuration
+project_id = "vaxtkabqnvazdsiditgs"
+
+[auth.email]
+# Demo: student accounts are created immediately without confirmation mail.
+enable_confirmations = false
+
+[functions.shared-evidence-url]
+# Gateway không ép verify JWT vì link có chế độ 'public' (khách truy cập, HR verifier chỉ gửi publishable key).
+# Khi link ở chế độ 'restricted', handler tự xác thực token và email_confirmed_at qua service.auth.getUser.
+verify_jwt = false
+
+[functions.avalanche-relayer]
+verify_jwt = false
+
+[functions.partner-applications]
+# Public submit callers only send the publishable/anon key (no JWT), so the
+# gateway cannot verify a token. The handler enforces authorization itself:
+# 'submit' is public, while 'provision'/'reject' require a Bearer JWT whose
+# public.users.role = 'admin'.
+verify_jwt = false
