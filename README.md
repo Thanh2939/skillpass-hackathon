@@ -11,6 +11,19 @@ SkillPass là nền tảng hồ sơ năng lực số dành cho sinh viên, trư�
 - Hợp đồng `SkillBadgeSBT`: [`0x6eB168fb1A638F8a95007a3c240e23B879eBB6Ee`](https://testnet.snowtrace.io/address/0x6eB168fb1A638F8a95007a3c240e23B879eBB6Ee)
 - Android: build bằng EAS profile `preview` để nhận file APK cài trực tiếp.
 
+## Truy cập dành cho ban giám khảo
+
+Các tài khoản dưới đây chỉ dùng cho bản demo hackathon và đã được kiểm tra đăng nhập thành công.
+
+| Vai trò | Link đăng nhập | Tên đăng nhập | Mật khẩu |
+| --- | --- | --- | --- |
+| Sinh viên | [Cổng Sinh viên](https://skillpass-app-sooty.vercel.app/login) | `sinhvien.demo@skillpass.vn` | `SkillPass-Student@2026!` |
+| Đại học | [Cổng Đối tác](https://skillpass-app-sooty.vercel.app/biz/login) | `daihoc.demo@skillpass.vn` | `SkillPass-Uni@2026!` |
+| Công ty | [Cổng Đối tác](https://skillpass-app-sooty.vercel.app/biz/login) | `congty.demo@skillpass.vn` | `SkillPass-Co@2026!` |
+| Quản trị viên | [Cổng Admin](https://skillpass-app-sooty.vercel.app/staff/login) | `admin@skillpass.vn` | `tltdt2007` |
+
+Không sử dụng các mật khẩu demo trên cho tài khoản hoặc hệ thống khác. Nếu chia sẻ repository ngoài phạm vi chấm hackathon, hãy đổi toàn bộ mật khẩu demo trước.
+
 ## Chức năng chính
 
 ### Sinh viên
