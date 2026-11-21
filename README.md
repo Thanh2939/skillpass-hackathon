@@ -88,6 +88,26 @@ Khóa phát hành theo `certificate_id` ngăn cùng một hồ sơ bị mint hai
 | Smart contract | Solidity `SkillBadgeSBT` | Phát hành chứng nhận số không chuyển nhượng |
 | Android build | Expo EAS Build | Ký và đóng gói APK/AAB |
 
+## Vì sao SkillPass sử dụng Avalanche
+
+- **Công khai và độc lập với ứng dụng:** bản ghi phát hành, chủ sở hữu, proof hash và transaction được lưu trên Avalanche Fuji. Các dữ liệu on-chain này vẫn có thể được tra cứu ngay cả khi giao diện hoặc database SkillPass không hoạt động.
+- **Không thể chuyển nhượng:** `SkillBadgeSBT` chặn việc chuyển token giữa các tài khoản, vì vậy chứng nhận không thể được bán hoặc chuyển sang người khác.
+- **Có lịch sử phát hành và thu hồi:** hợp đồng phát sự kiện `BadgeIssued` khi cấp chứng nhận và `BadgeRevoked` khi thu hồi. Lịch sử giao dịch vẫn tồn tại công khai để phục vụ kiểm toán.
+- **Kiểm chứng không cần quyền truy cập database:** bên thứ ba có thể dùng địa chỉ hợp đồng, token ID, transaction hash và proof hash để kiểm tra chứng nhận trực tiếp qua Snowtrace hoặc RPC Avalanche.
+
+Metadata chi tiết của phiên bản hackathon hiện được lưu công khai trên Supabase Storage. Avalanche đóng vai trò là lớp bằng chứng bất biến cho việc phát hành, chủ sở hữu, trạng thái thu hồi và giá trị hash dùng để đối chiếu dữ liệu ngoài chuỗi.
+
+## Vai trò của Relayer
+
+Trong phiên bản thử nghiệm, trường học và doanh nghiệp **không trực tiếp ký giao dịch blockchain** và không phải tự quản lý ví hay AVAX.
+
+1. Tài khoản đối tác đã được Admin xác minh kiểm tra minh chứng và phê duyệt hồ sơ trong SkillPass.
+2. Edge Function xác thực người duyệt, quyền của tổ chức, trạng thái chứng chỉ và khóa `certificate_id` để ngăn phát hành trùng.
+3. Ví Relayer của nền tảng thay mặt gửi giao dịch `issueBadge` lên Avalanche Fuji và thanh toán phí gas.
+4. Sau khi giao dịch được xác nhận, SkillPass lưu token ID, transaction hash và metadata vào database để hiển thị cho người dùng.
+
+Do đó, địa chỉ `issuer` on-chain trong bản thử nghiệm là địa chỉ Relayer của SkillPass, không phải ví riêng của từng trường học hoặc doanh nghiệp. Danh tính đơn vị phê duyệt được hệ thống kiểm tra trước khi gửi giao dịch và được ghi trong metadata cùng nhật ký database.
+
 ## Cấu trúc thư mục
 
 ```text
